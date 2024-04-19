@@ -71,3 +71,9 @@ Route::get('data/{nama}/{tinggi}/{berat}', function ($nama, $tinggi, $berat) {
         . "Nilai BMI : $bmi <br>"
         . "Keterangan : $ket ";
 });
+
+
+// Route Optional Parameter -> ditandai dengan ?
+Route::get('myname/{nama?}', function ($a = "Abdu") {
+    return "my name is $a";
+});
