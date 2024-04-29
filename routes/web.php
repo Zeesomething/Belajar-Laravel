@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,4 +77,10 @@ Route::get('data/{nama}/{tinggi}/{berat}', function ($nama, $tinggi, $berat) {
 // Route Optional Parameter -> ditandai dengan ?
 Route::get('myname/{nama?}', function ($a = "Abdu") {
     return "my name is $a";
+});
+
+// menampilkan data dari database
+Route::get('/testmodel', function () {
+    $data = Post::all();
+    return $data;
 });
