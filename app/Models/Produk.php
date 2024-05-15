@@ -9,10 +9,10 @@ class Produk extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','nama_produk','jumlah','tanggal_produksi','id_merek'];
+    protected $fillable = ['id', 'nama_produk', 'jumlah', 'tanggal_produksi', 'id_merek'];
     public $timestamps = true;
 
-    public function merek() 
+    public function merek()
     {
         return $this->belongsTo(Merek::class, 'id_merek');
     }

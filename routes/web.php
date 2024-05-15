@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\MerekController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\MerekController;
 use App\Models\Barang;
 use App\Models\Barangg2;
-use App\Models\Merek;
 use App\Models\Pembeli;
 use App\Models\Pengguna;
-use App\Models\Siswa;
-use App\Models\Telepon;
-use App\Models\Transaksi;
+use App\Models\Telepon;use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -137,7 +135,6 @@ Route::get('/telepon', function () {
     return view('/tampil_telepon', compact('telepon'));
 });
 
-
 Route::get('/produk', function () {
     $produk = Produk::all();
 
@@ -163,16 +160,18 @@ Route::get('/transaksi', function () {
 });
 
 // Menampilkan Melalui Controller
-Route::get('/post', [PostController::class, 'menampilkan']);
 
+Route::get('/post', [PostController::class, 'menampilkan']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 
-
 Route::get('/produk', [ProdukController::class, 'menampilkan']);
-
 Route::get('/produk/{id}', [ProdukController::class, 'show']);
 
-
 Route::get('/merek', [MerekController::class, 'menampilkan']);
-
 Route::get('/merek/{id}', [MerekController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('brand', BrandController::class);
