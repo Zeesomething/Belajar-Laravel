@@ -15,6 +15,8 @@
                 <th>ID</th>
                 <th>Nama Barang</th>
                 <th>Nama Pembeli</th>
+                <th>Jenis Kelamin</th>
+                <th>Harga Per Satuan</th>
                 <th>Jumlah</th>
                 <th>Tanggal</th>
             </tr>
@@ -25,6 +27,8 @@
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->barang->nama_barang }}</td>
                 <td>{{ $data->pembeli->nama_pembeli }}</td>
+                <td>{{ $data->pembeli->jenis_kelamin}}</td>
+                <td>{{ $data->barang->harga}}</td>
                 <td>{{ $data->jumlah }}</td>
                 <td>{{ $data->tanggal }}</td>
             </tr>
