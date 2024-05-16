@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProductController;
 use App\Models\Barang;
 use App\Models\Barangg2;
 use App\Models\Pembeli;
@@ -53,10 +54,10 @@ Route::get('vegetables', function () {
     return view('vegetables_page', ['buah' => $fruit]);
 });
 
-// route parameter
-Route::get('product/{name}', function ($name) {
-    return "produk : $name";
-});
+// // route parameter
+// Route::get('product/{name}', function ($name) {
+//     return "produk : $name";
+// });
 
 // buat sebuah route dengan 3 buah parameter,
 // nama, tinggi badan, berat badan
@@ -175,3 +176,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('brand', BrandController::class);
+
+Route::resource('product', ProductController::class);
+
